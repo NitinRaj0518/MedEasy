@@ -1,82 +1,72 @@
-import React, { useState } from 'react'
-import { AppBar, Tabs, Tab, Menu, MenuItem } from '@material-ui/core'
+import React, { useState } from 'react';
+import { AppBar, Tabs, Tab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
-  items: {
+  tab: {
     fontSize: '20px',
     textDecoration: 'none',
-
+    color: 'white', // Default color for tabs
     '&:hover': {
-      color: "white",
+      color: 'white',
     },
   },
-  menuitems: {
-    fontSize: '20px',
-    textDecoration: 'none',
-  },
-
   app: {
     backgroundColor: 'black',
   },
-
-
 }));
 
 function NavvBar() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [menu, setMenu] = useState('');
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-    setMenu(event.target.innerHTML)
-  };
+  const [value, setValue] = useState(0);
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleChange = (event, newValue) => {
+  const handleChange = (_, newValue) => {
     setValue(newValue);
   };
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} stryle={{width:'100%'}}>
       <AppBar className={classes.app} position="static">
-        <Tabs onChange={handleChange} value={value}>
-          <Tab label="Info" className={classes.items} onClick={handleClick} component={Link} to="/plasma" />
-          <Tab label="Request Blood" className={classes.items} onClick={handleClick} component={Link} to="/plasma/requestplasma" />
-          <Tab label="Donate Blood" className={classes.items} onClick={handleClick} component={Link} to="/plasma/donateplasma" />
-          <Tab label="Request List" className={classes.items} onClick={handleClick} component={Link} to="/plasma/getrequesters" />
-          <Tab label="Donors List" className={classes.items} onClick={handleClick} component={Link} to="/plasma/getdonors" />
+        <Tabs value={value} onChange={handleChange}>
+          <Tab
+            label="Info"
+            className={classes.tab}
+            component={Link}
+            to="/plasma"
+          />
+          <Tab
+            label="Request Blood"
+            className={classes.tab}
+            component={Link}
+            to="/plasma/requestplasma"
+          />
+          <Tab
+            label="Donate Blood"
+            className={classes.tab}
+            component={Link}
+            to="/plasma/donateplasma"
+          />
+          <Tab
+            label="Request List"
+            className={classes.tab}
+            component={Link}
+            to="/plasma/getrequesters"
+          />
+          <Tab
+            label="Donors List"
+            className={classes.tab}
+            component={Link}
+            to="/plasma/getdonors"
+          />
         </Tabs>
       </AppBar>
-      {
-        (menu === 'Blood Donor ⬇️') ? (
-          <Menu
-            id="hospital"
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={handleClose} className={classes.menuitems} component={Link} to="/plasma/requestplasma">Request Blood</MenuItem>
-            <MenuItem onClick={handleClose} className={classes.menuitems} component={Link} to="/plasma/donateplasma">Donate Blood</MenuItem>
-            <MenuItem onClick={handleClose} className={classes.menuitems} component={Link} to="/plasma/getrequesters">Request List</MenuItem>
-            <MenuItem onClick={handleClose} className={classes.menuitems} component={Link} to="/plasma/getdonors">Donors List</MenuItem>
-          </Menu>
-        ) : (
-          <div></div>
-        )
-      }
-
     </div>
-  )
+  );
 }
 
-export default NavvBar
+export default NavvBar;

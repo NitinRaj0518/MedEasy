@@ -9,7 +9,7 @@ export const HomePg = () => {
                     <div class="row justify-content-start">
                         <div class="col-lg-8 text-center text-lg-start">
                             <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5" style={{ bordercolor: 'rgba(256, 256, 256, .3) !important' }}>Welcome To Medinova</h5>
-                            <h1 class="display-1 text-white mb-md-4">Best Healthcare Portral On The Internet</h1>
+                            <h1 class="display-1 text-white mb-md-4">Best Healthcare Portral...</h1>
                             <div class="pt-2">
                                 <Link class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2" to='/medicine'>Medicine</Link>
                                 <a href="https://example.com" class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Appointment</a>

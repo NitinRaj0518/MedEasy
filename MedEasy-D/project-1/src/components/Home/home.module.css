@@ -3,51 +3,60 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(10px); 
+    border-radius: 10px;
 }
-.para
-{
+
+
+.para {
     font-size: 2em;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color:rgb(255, 255, 255); /* Text color for better contrast */
 }
-h1
-{
-    color:white;
-    display: block;
+
+h1 {
+    color: white;
     font-size: 3em;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0.67em 0; /* Shorter notation */
     font-weight: bold;
 }
-.quoteDiv
-{
-    background-color: rgb(179, 255, 179);
-    margin-top: 15px;
+
+.quoteDiv {
+    background-color:lightpink;
+    width: 100%;
     padding: 3px;
     text-align: center;
-
+    border-radius: 10px;
 }
-.quote
-{
-    color: green;
-    font-size: 3em;
+
+.quote {
+    color: rgb(229, 9, 9);
+    font-family: Roboto;
+    font-weight: 100;
+    font-size: 1.5em;
+    width: 100%;
     animation: blinker 2s linear infinite;
 }
-@keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-}
-.currentState
-{
+
+.currentState {
     color: rgb(128, 32, 0);
     padding: 15px;
     font-size: 3rem;
     text-align: center;
-    background-color: rgb(255, 198, 179);
+    background-color: rgba(255, 198, 179, 0.6); /* Adjust opacity as needed */
     font-weight: bold;
     border-radius: 4px;
 }
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
 @media only screen and (max-width: 770px) {
     .container {
         margin: 0 10%;

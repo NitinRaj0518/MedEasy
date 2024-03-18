@@ -24,7 +24,7 @@ const Donor = () =>{
         }).then(jsonRes => setRequesters(jsonRes))
     })
     return(
-        <>
+        <div>
          <h1 className={styles.heading}>Request List</h1>
             <table className={styles.styledtable}>
         <thead>
@@ -34,6 +34,7 @@ const Donor = () =>{
                 <th>Gender</th>
                 <th>Blood Group</th>
                 <th>Date of COVID-19 positive<br/><center>(yyyy-mm-dd)</center></th>
+                <th>Date of COVID-19 negative<br/><center>(yyyy-mm-dd)</center></th>
                 <th>Phone Number</th>
                 <th>State</th>
                 <th>City</th>
@@ -49,6 +50,7 @@ const Donor = () =>{
             <td>{donor.gender}</td>
             <td>{donor.bloodgroup}</td>
             <td>{(donor.positivedate).slice(0,10)}</td>
+            <td>{(donor.positivedate).slice(0,10)}</td>
             <td>{donor.phone}</td>
             <td>{donor.state}</td>
             <td>{donor.city}</td>
@@ -58,7 +60,7 @@ const Donor = () =>{
         )}
         </tbody>
         </table>
-        </>
+        </div>
     );
 }
 
