@@ -19,9 +19,17 @@ import { AuthState } from './store/AuthState';
 import { ProtectRoute } from './components/login/ProtectRoute';
 import CourseDeleteForm from './components/courseForm/DeleteCourse';
 import Hospitals from './components/Hospitals/hospitals.jsx';
-import PlasmaRoutes from './components/plasmaRoutes.js';
-import Home from "./components/Home/home.jsx";
+
+import Home from './components/Home/home.jsx'
 import NavvBar from './components/navbar/NavBar.jsx';
+import DonorForm from './components/Form/DonorForm/form.jsx';
+import RequestForm from './components/Form/RequestForm/form.jsx';
+import DonorList from './components/List/Donor/donor.jsx';
+import RequestList from './components/List/Requester/requester.jsx';
+import UpdateDonor from './components/List/Donor/update.jsx';
+import LoginR from './components/List/Requester/login.jsx';
+import UpdateR from './components/List/Requester/update.jsx';
+
 
 function App() {
   const [courses, setCourses] = useState([]);
@@ -76,22 +84,25 @@ function App() {
                     courses={courses}
                     handleFilteredCourses={handleFilteredCourses} />
                   {filteredCourses.map((course, index) =>
-                    <Course key={index} name={course.course_name} image={course.course_image} price={course.course_price} provider={course.course_provider} />
+                    <Course
+                      key={index}
+                      name={course.course_name}
+                      image={course.course_image}
+                      price={course.course_price}
+                      provider={course.course_provider} />
                   )}
                 </>
               } />
-              <Route exact path="/plasma" element={
-                <>
-                  <NavvBar />
-                  <Home />
-                </>
-              } />
-              <Route exact path="/plasma/*" element={
-                <>
-                  <PlasmaRoutes />
-                </>
-              } />
-              <Route exact path="/hospitalslist" element={<Hospitals />} />
+              <Route path="/plasma" element={<><NavvBar /><Home /></>} />
+              <Route path="/plasma/requestplasma" element={<><NavvBar /><RequestForm /></>} />
+              <Route path="/plasma/donateplasma" element={<><NavvBar /><DonorForm /></>} />
+              <Route path="/plasma/getdonors" element={<><NavvBar /><DonorList /></>} />
+              <Route path="/plasma/getrequesters" element={<><NavvBar /><RequestList /></>} />
+              <Route path="/plasma/updatedonor" element={<UpdateDonor />} />
+              <Route path="/plasma/requesterlogin" element={<LoginR />} />
+              <Route path="/plasma/requesterloginanddelete" element={<LoginR />} />
+              <Route path="/plasma/updaterequester" element={<UpdateR />} />
+              <Route path="/hospitalslist" element={<Hospitals />} />
             </Routes>
           </div>
           <Routes>

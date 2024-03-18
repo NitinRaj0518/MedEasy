@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './Course.css';
 import Notification from './Notification';
 import CartContext from '../../store/CartContext';
@@ -9,6 +9,10 @@ export const Course = (props) => {
     const [notification, setNotification] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState(null);
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top when the component mounts
+      }, []);
 
     const showNotification = (message) => {
         setNotification(message);
