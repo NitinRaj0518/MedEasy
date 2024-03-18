@@ -31,7 +31,7 @@ export default function PlasmaInfo() {
                 <div className={styles.flipcardback}>
                     
                 <p className={styles.content}>
-                "<span className={styles.quote}> DONATE BLOOD SAVE LIVES❤️ </span>"<br></br>
+                "<span className={styles.quote}> DONATE BLOOD SAVE LIVE❤️ </span>"<br></br>
                 Donating blood can save lives. Your antibodies can help someone fight the infection and emerge victoriously. Just like during any 
                 regular blood donation session, blood will be drawn from your arm.</p>
                 </div>
